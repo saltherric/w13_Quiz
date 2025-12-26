@@ -11,7 +11,7 @@ class GroceryList extends StatefulWidget {
 }
 
 class _GroceryListState extends State<GroceryList> {
-  int _selectedIndex = 0;
+  int selectIndex = 0;
   String searchItem = '';
 
   void onCreate() async {
@@ -31,7 +31,7 @@ class _GroceryListState extends State<GroceryList> {
   Widget build(BuildContext context) {
     Widget content;
 
-    if (_selectedIndex == 0) {
+    if (selectIndex == 0) {
         content = ListView.builder(
           itemCount: dummyGroceryItems.length,
           itemBuilder: (context, index) =>
@@ -84,10 +84,10 @@ class _GroceryListState extends State<GroceryList> {
       ),
       body: content,
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
+        currentIndex: selectIndex,
         onTap: (index) {
           setState(() {
-            _selectedIndex = index;
+            selectIndex = index;
           });
         },
         items: const [
